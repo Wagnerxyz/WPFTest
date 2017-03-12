@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7651EF6E-728A-4D4A-B534-2AA015C80409}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WpfTest</RootNamespace>
+    <AssemblyName>WpfTest</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF45">
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\net45\GalaSoft.MvvmLight.Extras.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF45">
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\net45\GalaSoft.MvvmLight.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="presentationframework.aero2">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="presentationframework.aerolite" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="PresentationFramework.Royale" />
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Core.Presentation" />
+    <Reference Include="System.Activities.Presentation" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPF.Themes">
+      <HintPath>..\Libs\WPF.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.3.17121.18230, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xceed.Wpf.AvalonDock.3.3.17121.18230\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="assignable.cs" />
+    <Compile Include="binding.xaml.cs">
+      <DependentUpon>binding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ClockUserCtrl.cs" />
+    <Compile Include="ControlTemplate.xaml.cs">
+      <DependentUpon>ControlTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\Converters.cs" />
+    <Compile Include="ConverterTest.xaml.cs">
+      <DependentUpon>ConverterTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalDefaultCommand.xaml.cs">
+      <DependentUpon>GlobalDefaultCommand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="CustomStackPanel.cs" />
+    <Compile Include="Helper\DataGridHelper.cs" />
+    <Compile Include="Helper\DispatcherHelper.cs" />
+    <Compile Include="Helper\EscapeCloseWindow.cs" />
+    <Compile Include="Helper\RandomNumber.cs" />
+    <Compile Include="Helper\RandomStringGenerator.cs" />
+    <Compile Include="Helper\RelayCommand.cs" />
+    <Compile Include="Helper\ViewModelBase.cs" />
+    <Compile Include="Helper\VisualTreeHelpers.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Student.cs" />
+    <Compile Include="CustomRoutedEvent\CustomroutedEvent.xaml.cs">
+      <DependentUpon>CustomroutedEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomRoutedEvent\ReportTimeEventArgs.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="ThemeManager.cs" />
+    <Compile Include="Validation\TextBoxValidation\DoubleRangeRule.cs" />
+    <Compile Include="Validation\TextBoxValidation\GreaterThanRule.cs" />
+    <Compile Include="Validation\TextBoxValidation\IpAddressRule.cs" />
+    <Compile Include="Validation\TextBoxValidation\IsNumberRule.cs" />
+    <Compile Include="Validation\TextBoxValidation\RequiredRule.cs" />
+    <Compile Include="Validation\TextBoxValidation\SmallerThanRule.cs" />
+    <Compile Include="Validation\TextBoxValidation\TextBoxValidator.cs" />
+    <Compile Include="Validation\TextBoxValidation\TextLengthRule.cs" />
+    <Compile Include="Validation\TextBoxValidation\ValidationRuleBase.cs" />
+    <Compile Include="Validation\AdvancedSetting.xaml.cs">
+      <DependentUpon>AdvancedSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Busydialogtest.xaml.cs">
+      <DependentUpon>Busydialogtest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DesignData.xaml.cs">
+      <DependentUpon>DesignData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OverridePremadeTheme.xaml.cs">
+      <DependentUpon>OverridePremadeTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RibbonChangeTheme.xaml.cs">
+      <DependentUpon>RibbonChangeTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UndoWindow.xaml.cs">
+      <DependentUpon>UndoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AvalonDock.xaml.cs">
+      <DependentUpon>AvalonDock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiLanguage.xaml.cs">
+      <DependentUpon>MultiLanguage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RepeatButton.xaml.cs">
+      <DependentUpon>RepeatButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Validate.xaml.cs">
+      <DependentUpon>Validate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowsTheme.xaml.cs">
+      <DependentUpon>WindowsTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window2.xaml.cs">
+      <DependentUpon>Window2.xaml</DependentUpon>
+    </Compile>
+    <Page Include="binding.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ControlTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConverterTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GlobalDefaultCommand.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Lang\en-US.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lang\zh-CN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomRoutedEvent\CustomroutedEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MyTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Validation\AdvancedSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Busydialogtest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CircularProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DesignData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OverridePremadeTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RibbonChangeTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\BureauBlack.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\BureauBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ExpressionDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ExpressionLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\OfficeBlueSkin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinyBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinyRed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\WhistlerBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UndoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AvalonDock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DesignData\Sample.cs" />
+    <DesignData Include="DesignData\SampleCustomers.xaml">
+      <SubType>Designer</SubType>
+    </DesignData>
+    <Page Include="Views\MultiLanguage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RepeatButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Validate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowsTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Window2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\about.png" />
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\add_folder.png" />
+    <Resource Include="Images\arrow_refresh.png" />
+    <Resource Include="Images\arrow_right.png" />
+    <Resource Include="Images\arrow_undo.png" />
+    <Resource Include="Images\close.png" />
+    <Resource Include="Images\command.png" />
+    <Resource Include="Images\commit.ico" />
+    <Resource Include="Images\copy-16x16.png" />
+    <Resource Include="Images\cut-16x16.png" />
+    <Resource Include="Images\cut.png" />
+    <Resource Include="Images\database.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\edit.png" />
+    <Resource Include="Images\exit.png" />
+    <Resource Include="Images\file.png" />
+    <Resource Include="Images\folder.png" />
+    <Resource Include="Images\Help.png" />
+    <Resource Include="Images\history.ico" />
+    <Resource Include="Images\Instrumentmanage.png" />
+    <Resource Include="Images\manage.png" />
+    <Resource Include="Images\Mark_Green_32x32_72.png" />
+    <Resource Include="Images\new.png" />
+    <Resource Include="Images\newproject.png" />
+    <Resource Include="Images\newprojectmousedown.png" />
+    <Resource Include="Images\open.png" />
+    <Resource Include="Images\openproject.png" />
+    <Resource Include="Images\openprojectmousedown.png" />
+    <Resource Include="Images\paste.png" />
+    <Resource Include="Images\Projectmanage.png" />
+    <Resource Include="Images\redo-16x16.png" />
+    <Resource Include="Images\refresh.png" />
+    <Resource Include="Images\reload.png" />
+    <Resource Include="Images\relogon.png" />
+    <Resource Include="Images\search.png" />
+    <Resource Include="Images\setting.ico" />
+    <Resource Include="Images\start.png" />
+    <Resource Include="Images\StartMenu.png" />
+    <Resource Include="Images\stop.png" />
+    <Resource Include="Images\Undo-16x16.png" />
+    <Resource Include="Images\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CustomControls\CustomControls.csproj">
+      <Project>{c15e9f0d-07c7-4c34-a686-77e7812e7963}</Project>
+      <Name>CustomControls</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{5cb22851-c161-4d2a-bcc8-7a2b4396881f}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,56 @@
+﻿<Window x:Class="ProductConfig.ChangeDataSourceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:local="clr-namespace:ProductConfig" Width="400" Height="260"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Window.DataContext>
+        <local:ChangeDataSourceViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition RowDefinition.Height="*" />
+            <RowDefinition RowDefinition.Height="30" />
+        </Grid.RowDefinitions>
+        <Grid FrameworkElement.Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ColumnDefinition.Width="*" />
+                <ColumnDefinition ColumnDefinition.Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition RowDefinition.Height="Auto" />
+                    <RowDefinition RowDefinition.Height="*" />
+                    <RowDefinition RowDefinition.Height="Auto" />
+                    <RowDefinition RowDefinition.Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Data source:" />
+                <ListBox x:Name="sourceInfoList" Grid.Row="1" ItemsSource="{Binding SouceInfo}" SelectedItem="{Binding SelectedItem}" DisplayMemberPath="Item1" SelectionChanged="SourceInfoList_OnSelectionChanged"/>
+                <TextBlock Text="Data provider:" Grid.Row="2" />
+                <ComboBox Name="cb" Grid.Row="3" ItemsSource="{Binding SelectedItem.Item2}">
+                    <!--<ComboBox.Style>
+                        <Style>
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="Selector.SelectionChanged" Actions=""></EventTrigger>
+                                <Trigger Property="ComboBox.SelectedValue" Value="{x:Null}" >
+                            <Setter  Property="ComboBox.SelectedIndex" Value="0"></Setter>
+                          </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ComboBox.Style>-->
+                </ComboBox>
+            </Grid>
+            <GroupBox Grid.Column="1" Header="Description">
+                <TextBlock TextWrapping="Wrap" Text="{Binding SelectedItem.Item3}" />
+            </GroupBox>
+        </Grid>
+        <Canvas Grid.Row="1">
+            <CheckBox Content="Always use this selection" Margin="5" />
+            <Button Content="OK" IsDefault="True" Click="ButtonBase_OnClick" Canvas.Left="279" Canvas.Top="5"/>
+            <Button Content="Cancel" IsCancel="True" Canvas.Left="339" Canvas.Top="7"/>
+        </Canvas>
+    </Grid>
+
+
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="ExcelTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="550" Width="825">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">           
+            <TextBox Width="60" Name="tb"></TextBox>
+            <Button Click="GetFromDB">从DB获取输入行数³次方</Button>
+            <!--<Button Click="GetFromDBReader">Getreaderfromdb还没配完</Button>-->
+            <Button Content="NPOI" Click="NPOI"></Button>
+            <Button Content="OpenXML" Click="OpenXml_Click"></Button>
+            <!--<Button Content="OpenXMLStreamExport" Click="OpenXmlStreamExportExcel_Click"></Button>-->
+            <Button Content="EPPExport" Click="EPPExport_OnClick"></Button>
+            <Button Content="Test" Click="Test"></Button>
+            <Button Content="GC" Click="GCollect"></Button>
+            <TextBox Width="60" Name="tbname"></TextBox>
+            <Button Click="TableNameChange">TableNameChange</Button>
+            <Button Click="SAX">Xml</Button>
+ 
+        </ToolBar>
+        <DataGrid x:Name="dg" IsReadOnly="True" MaxColumnWidth="500" >
+        </DataGrid>
+    </DockPanel>
+</Window>

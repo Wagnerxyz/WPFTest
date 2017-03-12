@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfTest.Views.DesignData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="MainWindow" Height="350" Width="525" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" >
+    <StackPanel d:DataContext="{d:DesignData Source=/DesignData/SampleCustomers.xaml}">
+        <DataGrid Name="lb1" ItemStringFormat="Name: {1}, {0}" ItemsSource="{Binding}">
+
+        </DataGrid>
+        <ListBox  Name="ListBox1" HorizontalContentAlignment="Stretch" ItemsSource="{Binding}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid  Background="White">
+                        <Border  BorderThickness="1" BorderBrush="SteelBlue"  CornerRadius="4"
+                                            Background="{Binding RelativeSource= { RelativeSource Mode=FindAncestor,  AncestorType={x:Type ListBoxItem}},Path=Background}">
+                            <Grid Margin="5">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="419" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Margin="0,0,5,0">
+                                    <TextBlock FontWeight="Bold" Text="{Binding Name}" FontSize="18" />
+                                    <TextBlock Text="{Binding Summary}" TextWrapping="Wrap"></TextBlock>
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Orientation="Horizontal"><Button Content="异常" />
+            <Button Content="mbox" Height="23" Name="button3" Width="75" Click="button3_Click" />
+            <!--<Button  Height="23" Background="{DynamicResource {x:Static SystemColors.DesktopColor}}"  HorizontalAlignment="Left" Margin="34,84,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" >
+
+            </Button>-->
+            <TextBlock Height="23" Name="textBox1" Width="120" Text="{Binding Path=Name}" />
+            <Button Content="Button" Height="23" Name="button2" Width="75" Click="button2_Click" />
+        </StackPanel>
+
+    </StackPanel>
+</Window>

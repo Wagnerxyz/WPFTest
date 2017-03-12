@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="ProductConfig.ConfigSetupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="204" d:DesignWidth="292">
+    <StackPanel>
+        <DataGrid AutoGenerateColumns="False" RowBackground="#FFEFF4FF" Height="150"  Name="datagrid" CanUserDeleteRows="True" Margin="6,6,6,0"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="名称"  Binding="{Binding Path=Key,Mode=TwoWay}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="值"   Binding="{Binding Path=Value,Mode=TwoWay}" Width="3*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Margin="0,8,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Content="Add new row" HorizontalAlignment="Center"  Click="Button_AddRow" Canvas.Right="161" Canvas.Top="6" Canvas.Left="33"/>
+            <Button Grid.Column="1" Content="Delete row" HorizontalAlignment="Center"   Click="DeleteClick" Canvas.Right="66" Canvas.Top="6" Canvas.Left="142" />
+            <Button Grid.Column="2" Content="Save"  HorizontalAlignment="Center"  Click="Button_Save" Canvas.Right="10" Canvas.Top="6" Canvas.Left="238" />
+        </Grid>
+    </StackPanel>
+</UserControl>

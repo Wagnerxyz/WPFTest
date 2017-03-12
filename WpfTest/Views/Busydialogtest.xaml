@@ -1,0 +1,14 @@
+﻿<Window x:Class="WpfTest.Views.Busydialogtest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controls="clr-namespace:CustomControls;assembly=CustomControls"
+        Title="Busydialogtest" Height="400" Width="400" x:Name="aa" DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Grid >
+        <controls:BusyDialog x:Name="ps" Work="{Binding DoCommand}" AllowCancel="True">
+            <WrapPanel>
+                <Button Click="Button_Click_1" >Async</Button>
+                <Button Click="Button_Click">asyncfile</Button>
+                <!--<Button Click="ButtonBase_OnClick">Sync</Button>-->
+            </WrapPanel>
+        </controls:BusyDialog>
+    </Grid>
+</Window>

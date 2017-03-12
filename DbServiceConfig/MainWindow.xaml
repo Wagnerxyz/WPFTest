@@ -1,0 +1,35 @@
+﻿<Window x:Class="ProductConfig.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ProductConfig"
+        Title="MainWindow" Height="560" Width="585">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+       <Grid Grid.Row="0" Grid.ColumnSpan="3">
+            <local:NtpService/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="3" Margin="10,5,20,5">
+            <local:AtpServiceManager></local:AtpServiceManager>
+        </Grid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="3">
+            <local:DataConnector />
+        </Grid>
+      
+        <Grid Grid.Row="3" Grid.ColumnSpan="3" Margin="10,5,20,5">
+            <local:ConfigSetupView></local:ConfigSetupView>
+        </Grid>
+    </Grid>
+
+
+</Window>

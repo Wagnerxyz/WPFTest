@@ -1,0 +1,159 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ProductConfig"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ProductConfig.DataConnector"
+             d:DesignWidth="368.66" d:DesignHeight="272.514"
+             >
+    <!--<UserControl.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="ClearItems"/>
+    </UserControl.CommandBindings>-->
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter  x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <local:DataConnectorViewModel/>
+    </UserControl.DataContext>
+    <GroupBox>
+        <GroupBox.Header>
+            <TextBlock Text=" Database Configuration"
+				FontSize="14"
+				FontWeight="Bold" />
+        </GroupBox.Header>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Server: "
+				VerticalAlignment="Center"
+				Margin="3"
+				Grid.Column="0"
+				Grid.Row="0" />
+            <Grid Grid.Column="1"
+				Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ComboBox Margin="3" IsEditable="True"
+					x:Name="SqlServerName" Text="{Binding SelectedServer}"
+					ItemsSource="{Binding Servers,Mode=OneWay}" 
+					 />
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <local:LoadingCircle VerticalAlignment="Center"
+					Visibility="{Binding ServersLoading, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <Button Content="Refresh" Command="{Binding RefreshCommand}" Width="50"></Button>
+                    <Button  Width="50" Content="Connect" Command="{Binding ConnectCommand}"/>
+                </StackPanel>
+
+            </Grid>
+
+            <GroupBox Header="Authentication:"
+				Grid.Column="0" Grid.Row="1"
+				Grid.ColumnSpan="2">
+                <StackPanel>
+                    <RadioButton Content="Windows Authentication" 
+						x:Name="chkWindowsAuthentication"
+						IsChecked="{Binding IntegratedSecurity}"/>
+                    <RadioButton Content="Sql Authentication"
+						Margin="3"
+						x:Name="SqlAuthTypeSql">
+                        <RadioButton.Style>
+                            <Style>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IntegratedSecurity}"
+										Value="False">
+                                        <Setter Property="ToggleButton.IsChecked"
+											Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </RadioButton.Style>
+                    </RadioButton>
+                    <Grid Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=SqlAuthTypeSql}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Username: "
+							Grid.Column="0"
+							Grid.Row="0"
+							Margin="3"
+							VerticalAlignment="Center" />
+                        <TextBox Grid.Column="1"
+							Grid.Row="0"
+							Margin="3"
+							Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="Password: "
+							Grid.Column="0"
+							Grid.Row="1"
+							Margin="3"
+							VerticalAlignment="Center" />
+                        <TextBox Grid.Column="1"
+							Grid.Row="1"
+							Margin="3"
+							Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" />
+                        <!--<CheckBox Content="Save my password" Grid.Row="2" Grid.Column="1" FrameworkElement.Margin="3" />-->
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+            <ProgressBar  Name="progressBar1"  Grid.Row="2"  Grid.ColumnSpan="2" Minimum="0" Maximum="100" Visibility="{Binding Visible}" Value="{Binding Progress}"/>
+            <GroupBox Header="Backup Restore Attach" Grid.Row="2"  Grid.ColumnSpan="2" Margin="5">
+                <StackPanel>
+                    <RadioButton  Content="Select or enter a destination database name to restore:" Margin="2" IsChecked="{Binding IsRestore}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ComboBox Name="ddlDatabase" Text="{Binding ConnectionString.Database}" SelectedItem="{Binding SelectedDb}" Margin="20,0,0,0"  ItemsSource="{Binding Databases}"/>
+                        <Button Grid.Column="1"    Content="BackUp" Command="{Binding BackUpCommand}" />
+                    </Grid>
+                    <RadioButton Content="Select a database file Restore Or Attach:" Margin="3">
+                    </RadioButton>
+                    <Grid  Margin="20,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Text="{Binding AttachDbFilename}" ToolTip="Select a sqlscript,mdf file or backup file"/>
+                        <Button Content="Browse..." Command="{Binding OpenCommand}" Width="60" Margin="3" Grid.Column="1" />
+                        <!--<TextBlock TextBlock.Text="Logical name:" Grid.Row="1" FrameworkElement.Margin="3" />
+                        <TextBox Grid.Row="2" Grid.ColumnSpan="2" FrameworkElement.Margin="3"/>-->
+                        <!--<TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding ConnectionString, Mode=OneWay}" />-->
+                        <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding ConnectResult, Mode=OneWay}"  />
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="3" >
+                            <Button Grid.Row="3" Margin="6,0,0,0"  Width="60" Content="Verify" Command="{Binding VerifyCommand}" />
+                            <Button Grid.Row="3" Grid.Column="1" Margin="6,0,0,0" Content="Restore" Command="{Binding RestoreCommand}"   />
+                            <Button Grid.Row="3" Grid.Column="1" Margin="6,0,0,0" Content="Attach" Command="{Binding AttachDbCommand}" />
+                            <Button Grid.Row="3" Grid.Column="1" Margin="6,0,0,0" Content="ExecuteSQL" Command="{Binding ExecuteSQLCommand}" />
+
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+            <!--<ContentPresenter Grid.Column="0"
+                              Grid.Row="3"
+                              Grid.ColumnSpan="2"
+                              Content="{Binding ConnectResult}" />-->
+        </Grid>
+    </GroupBox>
+</UserControl>

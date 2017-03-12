@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2898B7ED-83A1-462E-B964-B2447199A12E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ToolkitExtract</RootNamespace>
+    <AssemblyName>ToolkitExtract</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="BusyIndicator\Themes\Aero2.NormalColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BusyIndicator\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindow\Themes\Aero2.NormalColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindow\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Core\Themes\Aero2\SelectorItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Core\Themes\Aero2\WindowControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Core\Themes\Generic\SelectorItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Core\Themes\Generic\WindowControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BusyIndicator\Implementation\BusyIndicator.cs" />
+    <Compile Include="BusyIndicator\Implementation\VisualStates.BusyIndicator.cs" />
+    <Compile Include="ChildWindow\Implementation\ChildWindow.cs" />
+    <Compile Include="ChildWindow\Implementation\WindowStartupLocation.cs" />
+    <Compile Include="ChildWindow\Implementation\WindowState.cs" />
+    <Compile Include="Core\CancelRoutedEventArgs.cs" />
+    <Compile Include="Core\Converters\BorderThicknessToStrokeThicknessConverter.cs" />
+    <Compile Include="Core\Converters\CalculatorMemoryToVisibilityConverter.cs" />
+    <Compile Include="Core\Converters\ColorBlendConverter.cs" />
+    <Compile Include="Core\Converters\ColorToSolidColorBrushConverter.cs" />
+    <Compile Include="Core\Converters\InverseBoolConverter.cs" />
+    <Compile Include="Core\Converters\ObjectTypeToNameConverter.cs" />
+    <Compile Include="Core\Converters\RoundedValueConverter.cs" />
+    <Compile Include="Core\Converters\SolidColorBrushToColorConverter.cs" />
+    <Compile Include="Core\Converters\VisibilityToBoolConverter.cs" />
+    <Compile Include="Core\Converters\WindowContentBorderMarginConverter.cs" />
+    <Compile Include="Core\Converters\WindowControlBackgroundConverter.cs" />
+    <Compile Include="Core\ErrorMessages.cs" />
+    <Compile Include="Core\IndexChangedEventArgs.cs" />
+    <Compile Include="Core\IndexChangedEventHandler.cs" />
+    <Compile Include="Core\Input\InputValidationErrorEventArgs.cs" />
+    <Compile Include="Core\Input\IValidateInput.cs" />
+    <Compile Include="Core\Input\KeyModifier.cs" />
+    <Compile Include="Core\Input\KeyModifierCollection.cs" />
+    <Compile Include="Core\Input\KeyModifierCollectionConverter.cs" />
+    <Compile Include="Core\InvalidContentException.cs" />
+    <Compile Include="Core\InvalidTemplateException.cs" />
+    <Compile Include="Core\Media\Animation\AnimationRate.cs" />
+    <Compile Include="Core\Media\Animation\AnimationRateConverter.cs" />
+    <Compile Include="Core\Media\Animation\IterativeAnimationEquation.cs" />
+    <Compile Include="Core\Media\Animation\IterativeAnimationEquationDelegate.cs" />
+    <Compile Include="Core\Media\Animation\IterativeEquationConverter.cs" />
+    <Compile Include="Core\Media\Animation\PennerEquation.cs" />
+    <Compile Include="Core\Media\Animation\PennerEquations.cs" />
+    <Compile Include="Core\Media\WindowColors.cs" />
+    <Compile Include="Core\Primitives\CachedTextInfo.cs" />
+    <Compile Include="Core\Primitives\HsvColor.cs" />
+    <Compile Include="Core\Primitives\InputBase.cs" />
+    <Compile Include="Core\Primitives\MouseWheelActiveTriggerEnum.cs" />
+    <Compile Include="Core\Primitives\Selector.cs" />
+    <Compile Include="Core\Primitives\SelectorItem.cs" />
+    <Compile Include="Core\Primitives\ShapeBase.cs" />
+    <Compile Include="Core\Primitives\WindowContainer.cs" />
+    <Compile Include="Core\Primitives\WindowControl.cs" />
+    <Compile Include="Core\PropertyChangedEventArgs.cs" />
+    <Compile Include="Core\PropertyChangedEventHandler.cs" />
+    <Compile Include="Core\QueryTextFromValueEventArgs.cs" />
+    <Compile Include="Core\QueryValueFromTextEventArgs.cs" />
+    <Compile Include="Core\Themes\ResourceKeys.cs" />
+    <Compile Include="Core\Themes\StaticResourceKey.cs" />
+    <Compile Include="Core\UIElementAdorner.cs" />
+    <Compile Include="Core\Utilities\ColorUtilities.cs" />
+    <Compile Include="Core\Utilities\ContextMenuUtilities.cs" />
+    <Compile Include="Core\Utilities\DoubleHelper.cs" />
+    <Compile Include="Core\Utilities\EllipseHelper.cs" />
+    <Compile Include="Core\Utilities\FontUtilities.cs" />
+    <Compile Include="Core\Utilities\GeneralUtilities.cs" />
+    <Compile Include="Core\Utilities\KeyboardUtilities.cs" />
+    <Compile Include="Core\Utilities\ListUtilities.cs" />
+    <Compile Include="Core\Utilities\PointHelper.cs" />
+    <Compile Include="Core\Utilities\PropertyChangedExt.cs" />
+    <Compile Include="Core\Utilities\RectHelper.cs" />
+    <Compile Include="Core\Utilities\ReflectionHelper.cs" />
+    <Compile Include="Core\Utilities\ResourceHelper.cs" />
+    <Compile Include="Core\Utilities\RoutedEventHelper.cs" />
+    <Compile Include="Core\Utilities\Segment.cs" />
+    <Compile Include="Core\Utilities\TreeHelper.cs" />
+    <Compile Include="Core\Utilities\ValueChangeHelper.cs" />
+    <Compile Include="Core\Utilities\VisualTreeHelperEx.cs" />
+    <Compile Include="Core\Utilities\WeakEventListener.cs" />
+    <Compile Include="Core\Utilities\WindowUtilities.cs" />
+    <Compile Include="Core\WeakCollectionChangedWrapper.cs" />
+    <Page Include="MessageBox\Themes\Aero2.NormalColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MessageBox\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Aero.NormalColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Aero2.NormalColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Aero2\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Aero2\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Aero2\Glyphs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic\Glyphs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MessageBox\Implementation\MessageBox.cs" />
+    <Compile Include="MessageBox\Implementation\VisualStates.MessageBox.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Core\ErrorMessages.resx">
+      <DependentUpon>ErrorMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MessageBox\Icons\Error48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MessageBox\Icons\Information48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MessageBox\Icons\Question48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MessageBox\Icons\Warning48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\close_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\close_inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\close_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\close_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\close_rounded_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\close_rounded_inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\close_rounded_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\close_rounded_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\close_toolwindow_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\close_toolwindow_inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\close_toolwindow_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\close_toolwindow_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\maximize_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\maximize_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\maximize_inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\maximize_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\maximize_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\minimize_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\minimize_inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\minimize_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\minimize_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\resize_grip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\restore_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\restore_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\restore_inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\restore_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Generic\Images\restore_pressed.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

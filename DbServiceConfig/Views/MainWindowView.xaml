@@ -1,0 +1,24 @@
+﻿<Window x:Class="ProductConfig.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ProductConfig"
+        Title="MainWindow"
+        Height="650"
+        Width="525">
+    <Window.DataContext>
+        <local:DataConnectorViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>-->
+        <!--<local:DataSourceAreaView />-->
+        <StackPanel >
+            <local:DataConnector />
+        <TextBlock Text="{Binding ConnectionString, StringFormat='Produced Connection String: {0}'}"
+                   Grid.Row="1" />
+            <Button Command="{Binding ShowString}">get string</Button>
+        </StackPanel>
+    </Grid>
+</Window>

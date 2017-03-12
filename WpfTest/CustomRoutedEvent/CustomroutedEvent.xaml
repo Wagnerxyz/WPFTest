@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTest" 
+    x:Class="WpfTest.CustomroutedEvent" 
+        mc:Ignorable="d"
+        Title="CstomeroutedEvent" Height="300" Width="300">
+    <StackPanel x:Name="sp1" local:TimeButton.ReportTime="TimeButton_ReportTime">
+        <StackPanel x:Name="sp2" local:TimeButton.ReportTime="TimeButton_ReportTime">
+            <StackPanel x:Name="sp3" local:TimeButton.ReportTime="TimeButton_ReportTime">
+                <StackPanel x:Name="sp4" local:TimeButton.ReportTime="TimeButton_ReportTime">
+                    <ListBox x:Name="listBox"/>
+                    <local:TimeButton Height="50" x:Name="timebutton" Content="路由事件" ReportTime="TimeButton_ReportTime"/>
+                    <Image Source="/WpfTest;component/Images/about.png" Width="20">
+                    </Image>
+                    <Image Source="/Images/close.png" Width="20"></Image>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>

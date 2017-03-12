@@ -1,0 +1,14 @@
+﻿<local:AAACollection xmlns:local="clr-namespace:WpfTest">
+
+    <local:AAA  Author="Abbas"  Version="24"  ProviderTypeName="asdasd" ConfigEditorTypeName="qweqweq"
+                        ConfigEditorAssemblyName="qweqwe" ProviderAssemblyName="adqopopqwe" Summary="E7181DC6-3F9E-45A4-A5F7-AC0B119D1FD8" />
+    <local:AAA  Author="Abbas"  Version="23"  ProviderTypeName="asdasd" ConfigEditorTypeName="qweqweq" 
+                        ConfigEditorAssemblyName="qweqwe" ProviderAssemblyName="aqwe" Summary="E7181DC6-3F9E-45A4-A5F7-AC0B119D1FD8" />
+    <!--<common:ProviderBase Name="Syed" Author="Abbas" Version="23" 
+    Summary="E7181DC6-3F9E-45A4-A5F7-AC0B119D1FD8" />
+    <common:ProviderBase Name="Brenda" Author="Diaz" Version="55" 
+    Summary="BB638D72-8B72-495A-B0F9-79F37964BBAE" />
+    <common:ProviderBase Name="Lori" Author="Kane" Version="17" 
+    Summary="B168D811-5548-4D28-8171-318F9A4D7219" />-->
+
+</local:AAACollection>

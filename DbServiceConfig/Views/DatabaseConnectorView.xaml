@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="ProductConfig.DatabaseConnectorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition RowDefinition.Height="Auto" />
+            <RowDefinition RowDefinition.Height="*" />
+            <RowDefinition RowDefinition.Height="Auto" />
+            <RowDefinition RowDefinition.Height="Auto" />
+        </Grid.RowDefinitions>
+        <ContentControl ContentControl.Content="{Binding DataSourceAreaViewModel}" />
+        <ContentControl Grid.Row="1" ContentControl.Content="{Binding CurrentDatabaseConnectionViewModel}" />
+        <Button Grid.Row="2" FrameworkElement.HorizontalAlignment="Right" FrameworkElement.Margin="0,5,6,5" FrameworkElement.Width="100" ContentControl.Content="Advanced..." />
+        <Separator Grid.Row="3" FrameworkElement.HorizontalAlignment="Stretch" FrameworkElement.VerticalAlignment="Stretch" FrameworkElement.Height="2" FrameworkElement.Margin="3" />
+    </Grid>
+
+</UserControl>
