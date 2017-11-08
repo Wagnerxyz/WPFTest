@@ -56,7 +56,7 @@ class Program
 {
 
     static Stopwatch watch = new Stopwatch();
- private Mutex mtx = new Mutex(true);
+    private Mutex mtx = new Mutex(true);
     static int[] arr = new int[64 * 1024 * 1024];
     //  static int[] arr = new int[64 * 1024 * 1024];
     const int total = int.MaxValue;
@@ -64,6 +64,8 @@ class Program
     string called = "";
     static void Main(string[] args)
     {
+        CallWebApi.Run();
+
         //ClientGetAsync.Run(new []{ "http://localhost:45719/" });
 
         //Task task = Task.Factory.StartNew(Decrement);
@@ -102,7 +104,7 @@ class Program
 
     }
 
-      private void ThreadEntry()
+    private void ThreadEntry()
     {
         mtx.WaitOne();
         string name = Thread.CurrentThread.Name;
