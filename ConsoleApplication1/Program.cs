@@ -64,7 +64,7 @@ class Program
     string called = "";
     static void Main(string[] args)
     {
-        CallWebApi.Run();//test git 0:53
+        CallWebApi.Run();//test git 0:55
 
         //ClientGetAsync.Run(new []{ "http://localhost:45719/" });
 
